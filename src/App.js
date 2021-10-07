@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CurrentStats from "./components/CurrentStats/CurrentStats";
+import CurrentTemp from "./components/CurrentTemp/CurrentTemp";
+import LocationAndDate from "./components/LocationAndDate/LocationAndDate";
+import ByHour from "./components/ByHour/ByHour";
+import NextFiveDays from "./components/NextFiveDays/NextFiveDays";
+import { Container, Row, Col } from "reactstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="App">
+      <Row>
+        <LocationAndDate />
+      </Row>
+      <Row>
+        <Col style={{borderRight: "1px solid grey"}}>
+          <CurrentTemp />
+        </Col>
+        <Col  className="currentStats">
+          <CurrentStats />
+        </Col>
+      </Row>
+      <Row>
+        <ByHour />
+      </Row>
+      <Row className="nextFiveDays">
+        <NextFiveDays />
+      </Row>
+    </Container>
   );
 }
 
