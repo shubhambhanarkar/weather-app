@@ -1,7 +1,7 @@
-const LocationAndDate = () => {
+const LocationAndDate = (props) => {
   return (
     <div>
-      <p>Wednesday 18 August</p>
+      <h1>{props.date}</h1>
     </div>
   );
 };

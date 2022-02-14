@@ -1,14 +1,17 @@
-import { useMemo, useState } from "react";
-import countryList from "react-select-country-list";
-import { Input, Row } from "reactstrap";
+import { useMemo } from "react";
+import { Row } from "reactstrap";
+import { Country, City } from "country-state-city";
 
 const CitySelection = () => {
-  const [countryValue, setCountryValue] = useState("");
+  // const [selectedCountry, setSelectedCountry] = useState("");
 
-  const options = useMemo(() => countryList().getData(), []);
+  const countries = useMemo(() => Country.getAllCountries(), []);
+  const cities = useMemo(() => City.getCitiesOfCountry("IN"), []);
 
-  const countryClickHandler = () => {
-    setCountryValue(countryValue);
+  const countryChangeHandler = () => {
+    // const country = document.getElementById("my-select").value;
+    // setSelectedCountry(country);
+    console.log("changed", cities);
   };
 
   return (
@@ -21,29 +24,31 @@ const CitySelection = () => {
         }}
       >
         Country
-        <Input
+        <select
           type="select"
+          id="my-select"
+          onChange={countryChangeHandler}
           style={{ width: "200px", height: "40px" }}
-          value={countryValue}
-          onChange={countryClickHandler}
         >
-          {options.map((option) => {
-            return <option>{option.label}</option>;
+          {countries.map((country) => {
+            return <option value={country.name}>{country.name}</option>;
           })}
-        </Input>
+        </select>
       </Row>
-      <Row>
+      {/* <Row
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         City
-        <Input
-          type="select"
-          style={{ width: "200px", height: "40px" }}
-          value={countryValue}
-        >
-          {options.map((option) => {
-            return <option>{option.label}</option>;
+        <select type="select" style={{ width: "200px", height: "40px" }}>
+          {cities.map((city) => {
+            return <option value={city.value}>{city.name}</option>;
           })}
-        </Input>
-      </Row>
+        </select>
+      </Row> */}
     </div>
   );
 };
