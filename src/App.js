@@ -1,7 +1,7 @@
 import "./App.css";
 import CurrentStats from "./components/CurrentStats/CurrentStats";
 import CurrentTemp from "./components/CurrentTemp/CurrentTemp";
-import LocationAndDate from "./components/LocationAndDate/LocationAndDate";
+import Date from "./components/Date/Date";
 import ByHour from "./components/ByHour/ByHour";
 import NextFiveDays from "./components/NextFiveDays/NextFiveDays";
 import { Container, Row, Col } from "reactstrap";
@@ -29,7 +29,7 @@ function App() {
         <CitySelection />
       </Row>
       <Row>
-        <LocationAndDate />
+        <Date />
       </Row>
       <Row>
         <Col style={{ borderRight: "1px solid grey" }}>
