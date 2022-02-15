@@ -14,9 +14,9 @@ const ByHour = () => {
             margin: "1rem 2rem",
           }}
         >
-          <h3>3am</h3>
+          <h3>_</h3>
           <img src={sunny} alt="" />
-          <h3>14&#176;</h3>
+          <h3>_&#176;</h3>
         </Col>
         <Col
           style={{
@@ -26,9 +26,9 @@ const ByHour = () => {
             margin: "1rem 2rem",
           }}
         >
-          <h3>3am</h3>
+          <h3>_</h3>
           <img src={sunny} alt="" />
-          <h3>14&#176;</h3>
+          <h3>_&#176;</h3>
         </Col>
         <Col
           style={{
@@ -38,9 +38,9 @@ const ByHour = () => {
             margin: "1rem 2rem",
           }}
         >
-          <h3>3am</h3>
+          <h3>_</h3>
           <img src={sunny} alt="" />
-          <h3>14&#176;</h3>
+          <h3>_&#176;</h3>
         </Col>
         <Col
           style={{
@@ -50,9 +50,9 @@ const ByHour = () => {
             margin: "1rem 2rem",
           }}
         >
-          <h3>3am</h3>
+          <h3>_</h3>
           <img src={sunny} alt="" />
-          <h3>14&#176;</h3>
+          <h3>_&#176;</h3>
         </Col>
         <Col
           style={{
@@ -62,9 +62,9 @@ const ByHour = () => {
             margin: "1rem 2rem",
           }}
         >
-          <h3>3am</h3>
+          <h3>_</h3>
           <img src={sunny} alt="" />
-          <h3>14&#176;</h3>
+          <h3>_&#176;</h3>
         </Col>
       </Row>
     </Container>

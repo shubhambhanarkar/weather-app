@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "reactstrap";
 import mostlySunny from "../../store/icons/mostly-sunny.svg";
 
-const NextFiveDays = () => {
+const NextFiveDays = (props) => {
   return (
     <Container>
       <p>Next 5 days</p>
@@ -15,8 +15,7 @@ const NextFiveDays = () => {
         }}
       >
         <Col>
-          <h3>Tue</h3>
-          <p>14/7</p>
+          <h3>{props.forecast[0]?.date}</h3>
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
