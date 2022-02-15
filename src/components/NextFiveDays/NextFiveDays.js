@@ -15,7 +15,7 @@ const NextFiveDays = (props) => {
         }}
       >
         <Col>
-          <h3>{props.forecast[0]?.date}</h3>
+          <h3>_</h3>
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
