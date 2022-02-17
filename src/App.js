@@ -6,73 +6,84 @@ import Date from "./components/Date/Date";
 import ByHour from "./components/ByHour/ByHour";
 import NextFiveDays from "./components/NextFiveDays/NextFiveDays";
 import { Container, Row, Col } from "reactstrap";
-import { useOpenWeather } from "react-open-weather";
+import axios from "axios";
 
 function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [data, setData] = useState();
 
-  const showPosition = (position) => {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
-  };
-
-  const showError = () => {
-    alert("Please allow us to get your location.");
-  };
-
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-      alert("We cannot fetch the location currently.");
-    }
-  };
-
-  const { data, isLoading } = useOpenWeather({
-    key: "dcc7e384eb482e7814aba729a093bbbb",
-    lat: latitude,
-    lon: longitude,
-    lang: "en",
-    unit: "metric", // values are (metric, standard, imperial)
-  });
+  const apiURL = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=dcc7e384eb482e7814aba729a093bbbb`;
 
   useEffect(() => {
-    getLocation();
-    console.log("weather data", data);
-  });
+    fetchData();
+  }, []);
 
-  // useEffect(() => {
-  //   axios.get(apiURL).then((res) => {
-  //     const data = res.data;
-  //     setData(data);
-  //   });
-  //   console.log("weather data", data);
-  // }, [latitude, longitude]);
+  const getLocation = async () => {
+    new Promise((resolve, reject) => {
+      try {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              setLatitude(Math.round(position.coords.latitude));
+              setLongitude(Math.round(position.coords.longitude));
+              resolve();
+            },
+            () => {
+              alert("Please allow us to get your location.");
+            }
+          );
+        } else {
+          reject();
+          alert("We cannot fetch the location currently.");
+        }
+      } catch (err) {
+        console.log("location error", err);
+      }
+    });
+  };
+
+  useEffect(() => {
+    getWeatherData();
+    console.log("weather data", data);
+  }, [latitude, longitude]);
+
+  const getWeatherData = async () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        setData(await axios.get(apiURL));
+        resolve(data);
+      } catch (error) {
+        reject(error.message);
+      }
+    });
+  };
+
+  const fetchData = async () => {
+    await getLocation();
+  };
 
   return (
     <div>
-      {!isLoading && (
-        <Container className="App">
-          <Row>
-            <Date date={data?.current?.date} />
-          </Row>
-          <Row>
-            <Col style={{ borderRight: "1px solid grey" }}>
-              <CurrentTemp temp={data?.current} />
-            </Col>
-            <Col className="currentStats">
-              <CurrentStats stats={data?.forecast[0]} />
-            </Col>
-          </Row>
-          <Row>
-            <ByHour />
-          </Row>
-          <Row className="nextFiveDays">
-            <NextFiveDays forecast={data?.forecast} />
-          </Row>
-        </Container>
-      )}
+      <Container className="App">
+        <Row>
+          <Date />
+        </Row>
+        <Row>
+          <Col style={{ borderRight: "1px solid grey" }}>
+            <CurrentTemp />
+          </Col>
+          <Col className="currentStats">
+            <CurrentStats />
+          </Col>
+        </Row>
+        <Row>
+          <ByHour />
+        </Row>
+        <Row className="nextFiveDays">
+          <NextFiveDays />
+        </Row>
+      </Container>
     </div>
   );
 }

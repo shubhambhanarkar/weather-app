@@ -15,25 +15,26 @@ const NextFiveDays = (props) => {
         }}
       >
         <Col>
-          <h3>{props.forecast[0]?.date}</h3>
+          <h3>_</h3>
+          {/* {props.forecast[0]?.date} */}
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
         </Col>
         <Col>
-          <h3>10&#176;</h3>
+          <h3>_&#176;</h3>
           <p>Low</p>
         </Col>
         <Col>
-          <h3>21&#176;</h3>
+          <h3>_&#176;</h3>
           <p>High</p>
         </Col>
         <Col>
-          <h3>12mph</h3>
+          <h3>_</h3>
           <p>Wind</p>
         </Col>
         <Col>
-          <h3>0%</h3>
+          <h3>_</h3>
           <p>Rain</p>
         </Col>
       </Row>
@@ -47,26 +48,26 @@ const NextFiveDays = (props) => {
         }}
       >
         <Col>
-          <h3>Tue</h3>
-          <p>14/7</p>
+          <h3>_</h3>
+          {/* {props.forecast[0]?.date} */}
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
         </Col>
         <Col>
-          <h3>10&#176;</h3>
+          <h3>_&#176;</h3>
           <p>Low</p>
         </Col>
         <Col>
-          <h3>21&#176;</h3>
+          <h3>_&#176;</h3>
           <p>High</p>
         </Col>
         <Col>
-          <h3>12mph</h3>
+          <h3>_</h3>
           <p>Wind</p>
         </Col>
         <Col>
-          <h3>0%</h3>
+          <h3>_</h3>
           <p>Rain</p>
         </Col>
       </Row>
@@ -80,26 +81,26 @@ const NextFiveDays = (props) => {
         }}
       >
         <Col>
-          <h3>Tue</h3>
-          <p>14/7</p>
+          <h3>_</h3>
+          {/* {props.forecast[0]?.date} */}
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
         </Col>
         <Col>
-          <h3>10&#176;</h3>
+          <h3>_&#176;</h3>
           <p>Low</p>
         </Col>
         <Col>
-          <h3>21&#176;</h3>
+          <h3>_&#176;</h3>
           <p>High</p>
         </Col>
         <Col>
-          <h3>12mph</h3>
+          <h3>_</h3>
           <p>Wind</p>
         </Col>
         <Col>
-          <h3>0%</h3>
+          <h3>_</h3>
           <p>Rain</p>
         </Col>
       </Row>
@@ -113,26 +114,26 @@ const NextFiveDays = (props) => {
         }}
       >
         <Col>
-          <h3>Tue</h3>
-          <p>14/7</p>
+          <h3>_</h3>
+          {/* {props.forecast[0]?.date} */}
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
         </Col>
         <Col>
-          <h3>10&#176;</h3>
+          <h3>_&#176;</h3>
           <p>Low</p>
         </Col>
         <Col>
-          <h3>21&#176;</h3>
+          <h3>_&#176;</h3>
           <p>High</p>
         </Col>
         <Col>
-          <h3>12mph</h3>
+          <h3>_</h3>
           <p>Wind</p>
         </Col>
         <Col>
-          <h3>0%</h3>
+          <h3>_</h3>
           <p>Rain</p>
         </Col>
       </Row>
@@ -146,26 +147,26 @@ const NextFiveDays = (props) => {
         }}
       >
         <Col>
-          <h3>Tue</h3>
-          <p>14/7</p>
+          <h3>_</h3>
+          {/* {props.forecast[0]?.date} */}
         </Col>
         <Col>
           <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
         </Col>
         <Col>
-          <h3>10&#176;</h3>
+          <h3>_&#176;</h3>
           <p>Low</p>
         </Col>
         <Col>
-          <h3>21&#176;</h3>
+          <h3>_&#176;</h3>
           <p>High</p>
         </Col>
         <Col>
-          <h3>12mph</h3>
+          <h3>_</h3>
           <p>Wind</p>
         </Col>
         <Col>
-          <h3>0%</h3>
+          <h3>_</h3>
           <p>Rain</p>
         </Col>
       </Row>
