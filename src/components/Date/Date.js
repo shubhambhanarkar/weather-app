@@ -1,7 +1,7 @@
 const LocationAndDate = (props) => {
   return (
     <div>
-      <h1>{props.date}</h1>
+      <h1>_</h1>
     </div>
   );
 };
