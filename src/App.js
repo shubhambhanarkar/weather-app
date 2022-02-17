@@ -12,12 +12,18 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [data, setData] = useState();
+  const [dataLoading, setDataLoading] = useState(true);
 
-  const apiURL = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=dcc7e384eb482e7814aba729a093bbbb`;
+  const apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=fed1aa356aa6fa4fced8ca487e667588`;
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    getWeatherData();
+    console.log("weather data", data);
+  }, [latitude, longitude]);
 
   const getLocation = async () => {
     new Promise((resolve, reject) => {
@@ -25,8 +31,8 @@ function App() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
             (position) => {
-              setLatitude(Math.round(position.coords.latitude));
-              setLongitude(Math.round(position.coords.longitude));
+              setLatitude(position.coords.latitude);
+              setLongitude(position.coords.longitude);
               resolve();
             },
             () => {
@@ -43,47 +49,47 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    getWeatherData();
-    console.log("weather data", data);
-  }, [latitude, longitude]);
-
-  const getWeatherData = async () => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        setData(await axios.get(apiURL));
-        resolve(data);
-      } catch (error) {
-        reject(error.message);
-      }
-    });
-  };
-
   const fetchData = async () => {
     await getLocation();
   };
 
+  const getWeatherData = async () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const resData = await axios.get(apiURL);
+        setData(resData.data);
+        resolve(resData.data);
+        setDataLoading(false);
+      } catch (error) {
+        reject(error.message);
+        setDataLoading(true);
+      }
+    });
+  };
+
   return (
     <div>
-      <Container className="App">
-        <Row>
-          <Date />
-        </Row>
-        <Row>
-          <Col style={{ borderRight: "1px solid grey" }}>
-            <CurrentTemp />
-          </Col>
-          <Col className="currentStats">
-            <CurrentStats />
-          </Col>
-        </Row>
-        <Row>
-          <ByHour />
-        </Row>
-        <Row className="nextFiveDays">
-          <NextFiveDays />
-        </Row>
-      </Container>
+      {!dataLoading && (
+        <Container className="App">
+          <Row>
+            <Date date={data.current.dt} />
+          </Row>
+          <Row>
+            <Col style={{ borderRight: "1px solid grey" }}>
+              <CurrentTemp temp={data.current} />
+            </Col>
+            <Col className="currentStats">
+              <CurrentStats stats={data.current} />
+            </Col>
+          </Row>
+          <Row>
+            <ByHour />
+          </Row>
+          <Row className="nextFiveDays">
+            <NextFiveDays />
+          </Row>
+        </Container>
+      )}
     </div>
   );
 }
