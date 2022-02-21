@@ -12,14 +12,11 @@ const CurrentStats = (props) => {
     <Container>
       <Row>
         <Col>
-          <h2>_&#176;</h2>
+          <h2>{props.daily.temp.max}&#176;</h2>
           <p>High</p>
         </Col>
         <Col>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <h2>{props.stats.wind_speed}</h2>
-            <p style={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}> kmph</p>
-          </div>
+          <h2>{props.stats.wind_speed}</h2>
           <p>Wind</p>
         </Col>
         <Col>
@@ -31,7 +28,7 @@ const CurrentStats = (props) => {
       </Row>
       <Row>
         <Col>
-          <h2>_&#176;</h2>
+          <h2>{props.daily.temp.min}&#176;</h2>
           <p>Low</p>
         </Col>
         <Col>

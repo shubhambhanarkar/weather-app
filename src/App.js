@@ -79,14 +79,14 @@ function App() {
               <CurrentTemp temp={data.current} />
             </Col>
             <Col className="currentStats">
-              <CurrentStats stats={data.current} />
+              <CurrentStats stats={data.current} daily={data.daily[0]} />
             </Col>
           </Row>
           <Row>
             <ByHour hourData={data.hourly} />
           </Row>
           <Row className="nextFiveDays">
-            <NextFiveDays />
+            <NextFiveDays daily={data.daily} />
           </Row>
         </Container>
       )}

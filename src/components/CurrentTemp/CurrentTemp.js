@@ -12,7 +12,7 @@ const CurrentTemp = (props) => {
           <h1 style={{ fontSize: "5rem", fontWeight: "lighter" }}>
             {Math.round(props.temp.temp)}&#176;
           </h1>
-          <p>{props.temp.weather[0].description}</p>
+          <p>{props.temp.weather[0].main}</p>
         </Col>
       </Row>
     </Container>

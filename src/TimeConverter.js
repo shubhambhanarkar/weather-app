@@ -7,6 +7,7 @@ export const timeConverter = (UNIX_timestamp) => {
   const humanDateFormat = dateObject.toLocaleString(); //2019-12-9 10:30:15
   const weekDay = dateObject.toLocaleString("en-US", { weekday: "long" }); // Monday
   const monthName = dateObject.toLocaleString("en-US", { month: "long" }); // December
+  const monthNumber = dateObject.toLocaleString("en-US", { month: "numeric" });
   const day = dateObject.toLocaleString("en-US", { day: "numeric" }); // 9
   const year = dateObject.toLocaleString("en-US", { year: "numeric" }); // 2019
   const hour = ("0" + notHour).slice(-2); // 02
@@ -20,6 +21,7 @@ export const timeConverter = (UNIX_timestamp) => {
     humanDateFormat,
     weekDay,
     monthName,
+    monthNumber,
     day,
     year,
     hour,
