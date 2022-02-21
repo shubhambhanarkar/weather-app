@@ -83,7 +83,7 @@ function App() {
             </Col>
           </Row>
           <Row>
-            <ByHour />
+            <ByHour hourData={data.hourly} />
           </Row>
           <Row className="nextFiveDays">
             <NextFiveDays />

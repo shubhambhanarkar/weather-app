@@ -40,7 +40,7 @@ const CurrentStats = (props) => {
         </Col>
         <Col>
           <h2>
-            {sunsetHour}:{sunriseMinute}
+            {sunsetHour}:{sunsetMinute}
           </h2>
           <p>Sunset</p>
         </Col>
