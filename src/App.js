@@ -61,6 +61,7 @@ function App() {
         resolve(resData.data);
         setDataLoading(false);
       } catch (error) {
+        console.log("weather data error", error.message);
         reject(error.message);
         setDataLoading(true);
       }

@@ -3,6 +3,13 @@ import sunny from "../../store/icons/sunny.svg";
 import { timeConverter } from "../../TimeConverter";
 
 const ByHour = (props) => {
+  // const getData = () => {
+  //   for (let i = 0; i < 5; i++) {
+  //     const { hour: hour0, minute: minute0 } = timeConverter(
+  //       props.hourData[i].dt
+  //     );
+  //   }
+  // };
   const { hour: hour0, minute: minute0 } = timeConverter(props.hourData[0].dt);
   const { hour: hour1, minute: minute1 } = timeConverter(props.hourData[1].dt);
   const { hour: hour2, minute: minute2 } = timeConverter(props.hourData[2].dt);
