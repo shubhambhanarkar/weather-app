@@ -12,7 +12,7 @@ const CurrentStats = (props) => {
     <Container>
       <Row>
         <Col>
-          <h2>{props.daily.temp.max}&#176;</h2>
+          <h2>{Math.round(props.daily.temp.max)}&#176;C</h2>
           <p>High</p>
         </Col>
         <Col>
@@ -28,7 +28,7 @@ const CurrentStats = (props) => {
       </Row>
       <Row>
         <Col>
-          <h2>{props.daily.temp.min}&#176;</h2>
+          <h2>{Math.round(props.daily.temp.min)}&#176;C</h2>
           <p>Low</p>
         </Col>
         <Col>
