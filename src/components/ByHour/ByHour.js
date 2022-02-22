@@ -32,7 +32,7 @@ const ByHour = (props) => {
             {hour0}:{minute0}
           </h3>
           <img src={sunny} alt="" />
-          <h3>{props.hourData[0].temp}&#176;</h3>
+          <h3>{Math.round(props.hourData[0].temp)}&#176;</h3>
         </Col>
         <Col
           style={{
@@ -46,7 +46,7 @@ const ByHour = (props) => {
             {hour1}:{minute1}
           </h3>
           <img src={sunny} alt="" />
-          <h3>{props.hourData[1].temp}&#176;</h3>
+          <h3>{Math.round(props.hourData[1].temp)}&#176;</h3>
         </Col>
         <Col
           style={{
@@ -60,7 +60,7 @@ const ByHour = (props) => {
             {hour2}:{minute2}
           </h3>
           <img src={sunny} alt="" />
-          <h3>{props.hourData[2].temp}&#176;</h3>
+          <h3>{Math.round(props.hourData[2].temp)}&#176;</h3>
         </Col>
         <Col
           style={{
@@ -74,7 +74,7 @@ const ByHour = (props) => {
             {hour3}:{minute3}
           </h3>
           <img src={sunny} alt="" />
-          <h3>{props.hourData[3].temp}&#176;</h3>
+          <h3>{Math.round(props.hourData[3].temp)}&#176;</h3>
         </Col>
         <Col
           style={{
@@ -88,7 +88,7 @@ const ByHour = (props) => {
             {hour4}:{minute4}
           </h3>
           <img src={sunny} alt="" />
-          <h3>{props.hourData[4].temp}&#176;</h3>
+          <h3>{Math.round(props.hourData[4].temp)}&#176;</h3>
         </Col>
       </Row>
     </Container>
