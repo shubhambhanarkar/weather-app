@@ -1,12 +1,16 @@
 import { Container, Row, Col } from "reactstrap";
-import mostlySunny from "../../store/icons/mostly-sunny.svg";
 
 const CurrentTemp = (props) => {
+  const icon = props.temp.weather[0].icon;
   return (
     <Container>
       <Row>
         <Col style={{ textAlign: "center", padding: "0rem" }}>
-          <img src={mostlySunny} alt="" style={{ height: "8rem" }} />
+          <img
+            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+            alt=""
+            style={{ width: "12rem", height: "10rem" }}
+          />
         </Col>
         <Col style={{ textAlign: "center", padding: "0rem" }}>
           <h1 style={{ fontSize: "5rem", fontWeight: "lighter" }}>

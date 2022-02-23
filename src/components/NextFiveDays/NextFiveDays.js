@@ -1,5 +1,4 @@
 import { Container, Row, Col } from "reactstrap";
-import mostlySunny from "../../store/icons/mostly-sunny.svg";
 import { timeConverter } from "../../TimeConverter";
 
 const NextFiveDays = (props) => {
@@ -18,6 +17,13 @@ const NextFiveDays = (props) => {
   const { day: day5, monthNumber: monthNumber5 } = timeConverter(
     props.daily[5].dt
   );
+
+  const icon1 = props.daily[1].weather[0].icon;
+  const icon2 = props.daily[2].weather[0].icon;
+  const icon3 = props.daily[3].weather[0].icon;
+  const icon4 = props.daily[4].weather[0].icon;
+  const icon5 = props.daily[5].weather[0].icon;
+
   return (
     <Container>
       <p>Next 5 days</p>
@@ -28,6 +34,9 @@ const NextFiveDays = (props) => {
           margin: "1.5rem 0rem",
           padding: "0.75rem 0rem",
           textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Col
@@ -42,7 +51,11 @@ const NextFiveDays = (props) => {
           </h3>
         </Col>
         <Col>
-          <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
+          <img
+            src={`http://openweathermap.org/img/wn/${icon1}@2x.png`}
+            alt=""
+            style={{ height: "4rem", width: "4rem" }}
+          />
         </Col>
         <Col>
           <h3>{Math.round(props.daily[1].temp.min)}&#176;C</h3>
@@ -82,7 +95,11 @@ const NextFiveDays = (props) => {
           </h3>
         </Col>
         <Col>
-          <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
+          <img
+            src={`http://openweathermap.org/img/wn/${icon2}@2x.png`}
+            alt=""
+            style={{ height: "4rem", width: "4rem" }}
+          />
         </Col>
         <Col>
           <h3>{Math.round(props.daily[2].temp.min)}&#176;C</h3>
@@ -122,7 +139,11 @@ const NextFiveDays = (props) => {
           </h3>
         </Col>
         <Col>
-          <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
+          <img
+            src={`http://openweathermap.org/img/wn/${icon3}@2x.png`}
+            alt=""
+            style={{ height: "4rem", width: "4rem" }}
+          />
         </Col>
         <Col>
           <h3>{Math.round(props.daily[3].temp.min)}&#176;C</h3>
@@ -162,7 +183,11 @@ const NextFiveDays = (props) => {
           </h3>
         </Col>
         <Col>
-          <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
+          <img
+            src={`http://openweathermap.org/img/wn/${icon4}@2x.png`}
+            alt=""
+            style={{ height: "4rem", width: "4rem" }}
+          />
         </Col>
         <Col>
           <h3>{Math.round(props.daily[4].temp.min)}&#176;C</h3>
@@ -202,7 +227,11 @@ const NextFiveDays = (props) => {
           </h3>
         </Col>
         <Col>
-          <img src={mostlySunny} alt="" style={{ height: "5rem" }} />
+          <img
+            src={`http://openweathermap.org/img/wn/${icon5}@2x.png`}
+            alt=""
+            style={{ height: "4rem", width: "4rem" }}
+          />
         </Col>
         <Col>
           <h3>{Math.round(props.daily[5].temp.min)}&#176;C</h3>
